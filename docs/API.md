@@ -759,6 +759,7 @@ __Parameters__
 |        |  ``InvalidBucketNameException`` : upon invalid bucket name. |
 |        | ``NoSuchAlgorithmException`` : upon requested algorithm was not found during signature calculation.  |
 |        | ``InsufficientDataException`` : Thrown to indicate that reading given InputStream gets EOFException before reading given length. |
+
 |        | ``IOException`` : upon connection error.            |
 |        | ``InvalidKeyException`` : upon an invalid access key or secret key.           |
 |        | ``NoResponseException`` : upon no response from server.            |
@@ -1918,6 +1919,7 @@ master key passed to this function.
  Any custom or additional meta data can also be provided through `headerMap`.
  If the object is larger than 5MB, the client will automatically perform multi part upload.
  [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#putObject-java.lang.String-java.lang.String-java.io.InputStream-long-java.lang.String-javax.crypto.SecretKey-)
+
  __Parameters__
  |Param   | Type	  | Description  |
 |:--- |:--- |:--- |
@@ -1942,6 +1944,7 @@ master key passed to this function.
 |		 | ``NoSuchPaddingException`` : upon wrong padding type specified. |
  __Example__
  Object is encrypted using a randomly generated data encryption key. The data encryption key is then encrypted using a master key known only to the client (wrapped in encryptionMaterials object). The encrypted data encryption key is uploaded as the object header along with the IV used and the encrypted object to the remote server.
+
  ```java
 try {
   StringBuilder builder = new StringBuilder();
@@ -2903,6 +2906,7 @@ try {
 ```
 
 <a name="presignedPutObject"></a>
+
 ### presignedPutObject(String bucketName, String objectName)
 
 `public String presignedPutObject(String bucketName, String objectName)`

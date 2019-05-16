@@ -5,7 +5,7 @@ MinIO Java Client SDK提供简单的API来访问任何与Amazon S3兼容的对�
 本快速入门指南将向你展示如何安装客户端SDK并执行示例java程序。有关API和示例的完整列表，请查看[Java Client API Reference](http://docs.min.io/docs/java-client-api-reference)文档。
 
 ## 最低需求
-Java 1.8或更高版本:
+Java 1.8或更高版本，并且有以下的环境之一:
 
 * [OracleJDK 8.0](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [OpenJDK8.0](http://openjdk.java.net/install/)
@@ -15,21 +15,21 @@ Java 1.8或更高版本:
 <dependency>
     <groupId>io.minio</groupId>
     <artifactId>minio</artifactId>
-    <version>3.0.10</version>
+    <version>6.0.7</version>
 </dependency>
 ```
 
 ## 使用gradle
-```
+```xml
 dependencies {
-    compile 'io.minio:minio:3.0.10'
+    compile 'io.minio:minio:6.0.7'
 }
 ```
 
 ## 直接下载JAR
-你可以到maven仓库直接下载最新版的[JAR](http://repo1.maven.org/maven2/io/minio/minio/3.0.10/)。
+你可以到maven仓库直接下载最新版的[JAR](http://repo1.maven.org/maven2/io/minio/minio/6.0.7/)。
 
-## 快速入门示例－文件上传
+## 快速入门示例—文件上传
 本示例程序连接到一个对象存储服务，创建一个存储桶并上传一个文件到该桶中。
 
 你需要有存储服务的三个参数才能连接到该服务。
@@ -82,12 +82,12 @@ public class FileUploader {
 
 #### 编译FileUploader
 ```sh
-javac -cp "minio-3.0.9-all.jar"  FileUploader.java
+javac -cp "minio-6.0.7-all.jar"  FileUploader.java
 ```
 
 #### 运行FileUploader
 ```sh
-java -cp "minio-3.0.9-all.jar:." FileUploader
+java -cp "minio-6.0.7-all.jar:." FileUploader
 /home/user/Photos/asiaphotos.zip is successfully uploaded as asiaphotos.zip to `asiatrip` bucket.
 
 mc ls play/asiatrip/
@@ -100,7 +100,7 @@ mc ls play/asiatrip/
 
 * [API完整文档](https://docs.min.io/docs/java-client-api-reference)
 
-### API文档: 操作存储桶
+### API文档: 存储桶操作
 * [`makeBucket`](https://docs.min.io/docs/java-client-api-reference#makeBucket)
 * [`listBuckets`](https://docs.min.io/docs/java-client-api-reference#listBuckets)
 * [`bucketExists`](https://docs.min.io/docs/java-client-api-reference#bucketExists)
@@ -108,7 +108,7 @@ mc ls play/asiatrip/
 * [`listObjects`](https://docs.min.io/docs/java-client-api-reference#listObjects)
 * [`listIncompleteUploads`](https://docs.min.io/docs/java-client-api-reference#listIncompleteUploads)
 
-### API文档: 操作文件对象
+### API文档: 对象操作
 * [`getObject`](https://docs.min.io/docs/java-client-api-reference#getObject)
 * [`putObject`](https://docs.min.io/docs/java-client-api-reference#putObject)
 * [`copyObject`](https://docs.min.io/docs/java-client-api-reference#copyObject)
@@ -121,13 +121,13 @@ mc ls play/asiatrip/
 * [`presignedPutObject`](https://docs.min.io/docs/java-client-api-reference#presignedPutObject)
 * [`presignedPostPolicy`](https://docs.min.io/docs/java-client-api-reference#presignedPostPolicy)
 
-### API文档: 操作存储桶策略
+### API文档: 存储桶策略操作
 * [`getBucketPolicy`](https://docs.min.io/docs/java-client-api-reference#getBucketPolicy)
 * [`setBucketPolicy`](https://docs.min.io/docs/java-client-api-reference#setBucketPolicy)
 
 ## 完整示例
 
-#### 完整示例: Bucket Operations
+#### 完整示例: 存储桶操作
 * [ListBuckets.java](https://github.com/minio/minio-java/tree/master/examples/ListBuckets.java)
 * [ListObjects.java](https://github.com/minio/minio-java/tree/master/examples/ListObjects.java)
 * [BucketExists.java](https://github.com/minio/minio-java/tree/master/examples/BucketExists.java)
@@ -135,7 +135,7 @@ mc ls play/asiatrip/
 * [RemoveBucket.java](https://github.com/minio/minio-java/tree/master/examples/RemoveBucket.java)
 * [ListIncompleteUploads.java](https://github.com/minio/minio-java/tree/master/examples/ListIncompleteUploads.java)
 
-#### 完整示例: Object Operations
+#### 完整示例: 对象操作
 * [PutObject.java](https://github.com/minio/minio-java/tree/master/examples/PutObject.java)
 * [PutObjectEncrypted.java](https://github.com/minio/minio-java/tree/master/examples/PutObjectEncrypted.java)
 * [GetObject.Java](https://github.com/minio/minio-java/tree/master/examples/GetObject.java)
@@ -145,17 +145,25 @@ mc ls play/asiatrip/
 * [RemoveObjects.java](https://github.com/minio/minio-java/tree/master/examples/RemoveObjects.java)
 * [StatObject.java](https://github.com/minio/minio-java/tree/master/examples/StatObject.java)
 
-#### 完整示例: Presigned Operations
+#### 完整示例: Presigned操作
 * [PresignedGetObject.java](https://github.com/minio/minio-java/tree/master/examples/PresignedGetObject.java)
 * [PresignedPutObject.java](https://github.com/minio/minio-java/tree/master/examples/PresignedPutObject.java)
 * [PresignedPostPolicy.java](https://github.com/minio/minio-java/tree/master/examples/PresignedPostPolicy.java)
 
-#### 完整示例: Bucket Policy Operations
+#### 完整示例: 存储桶策略操作
 * [SetBucketPolicy.java](https://github.com/minio/minio-java/tree/master/examples/SetBucketPolicy.java)
 * [GetBucketPolicy.Java](https://github.com/minio/minio-java/tree/master/examples/GetBucketPolicy.java)
 
+#### 完整示例： 服务端加密
+* [CopyObjectEncrypted.java](https://github.com/minio/minio-java/tree/master/examples/CopyObjectEncrypted.java)
+* [CopyObjectEncryptedKms.java](https://github.com/minio/minio-java/tree/master/examples/CopyObjectEncryptedKms.java)
+* [CopyObjectEncryptedS3.java](https://github.com/minio/minio-java/tree/master/examples/CopyObjectEncryptedS3.java)
+* [PutGetObjectEncrypted.java](https://github.com/minio/minio-java/tree/master/examples/PutGetObjectEncrypted.java)
+* [PutObjectEncryptedKms.java](https://github.com/minio/minio-java/tree/master/examples/PutObjectEncryptedKms.java)
+* [PutObjectEncryptedS3.java](https://github.com/minio/minio-java/tree/master/examples/PutObjectEncryptedS3.java)
+
 ## 了解更多
-* [MinIO官方文档](https://docs.min.io)
+* [MinIO完整文档](https://docs.min.io)
 * [MinIO Java Client SDK API文档](https://docs.min.io/docs/java-client-api-reference)
 * [创建属于你的照片API服务-完整示例](https://github.com/minio/minio-java-rest-example)
 
